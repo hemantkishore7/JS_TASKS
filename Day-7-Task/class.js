@@ -9,17 +9,19 @@
         this.flag =flag;
         }
     getCountries(arrCountry = []){
-        console.log("Asian Region Country:");
-        this.countries = arrCountry.filter(country => country.region == 'Asia'); 
-        return this.countries;
+        console.log("#Asian Region Country:");
+        let res = arrCountry.filter(country => 
+            country.region == 'Asia'
+        ); 
+        console.log(res);
     }
     getPopulation(arrCountry = []){
-        console.log("Population less than 2 lakhs:");
+        console.log("#Population less than 2 lakhs:");
         this.population = arrCountry.filter(pop => pop.population < 200000);
-        return this.population;
+        console.log(this.population);
     }
     getCurrency(arrCountry = []){
-        console.log("Dollar Currency used Countries: ")
+        console.log("#Dollar Currency used Countries: ")
         this.currencies = arrCountry.filter(cur => cur.currencies == "United States dollar")
         return this.currencies;
     }
@@ -29,8 +31,14 @@
     }
     getTotalPopulation(arrCountry = []){
         //let getPop = arrCountry.population
-      let tot = arrCountry.reduce((t,p) => t + p.population)
-      return tot;
+        console.log("#Total No of Population:")
+      let tot = arrCountry.reduce((t,p) =>{
+         if(typeof t == 'object'){
+            return t.population + p.population
+         }
+         return t + p.population 
+        })
+      console.log (tot);
      }
 
   }
@@ -44,10 +52,10 @@ request.onload = () =>{
     let getdetail = JSON.parse(request.response)
     let arrCountry = [...getdetail];
     let setDetail = new RestCountries(arrCountry.countries,arrCountry.population,arrCountry.currencies)
-    console.log(setDetail.getCountries(arrCountry));
-    console.log(setDetail.getPopulation(arrCountry));
-    console.log(setDetail.getCurrency(arrCountry));
+    setDetail.getCountries(arrCountry);
+    setDetail.getPopulation(arrCountry);
+    setDetail.getCurrency(arrCountry);
     //arrCountry.forEach(setDetail.getNameCapitalFlag(getdetail))
-    console.log(setDetail.getTotalPopulation(arrCountry))
+  setDetail.getTotalPopulation(arrCountry);
 }
 
