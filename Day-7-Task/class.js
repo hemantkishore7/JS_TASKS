@@ -66,7 +66,7 @@ request.onload = () => {
   setDetail.getPopulation(arrCountry);
   setDetail.getCurrency(arrCountry);
   //console.log(arrCountry)
-  //setDetail.getNameCapitalFlag(arrCountry);
+  setDetail.getNameCapitalFlag(arrCountry);
   setDetail.getTotalPopulation(arrCountry);
 }
 
