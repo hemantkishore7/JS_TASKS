@@ -24,15 +24,16 @@ class RestCountries {
     let res = population.map((country)=>{
       return country.name.common
     })
+     //console.log(population);
     console.log(res);
   }
 
   getCurrency(arrCountry = []) {
    
     console.log("#Dollar Currency used Countries: ")
-    let res = arrCountry.filter((cur => {  
-      console.log(cur.currencies.USD.symbol === '$'); }))
-    
+    let curr = arrCountry.filter(cur => cur.currencies.USD[0]=="United States dollar");
+    console.log(curr);
+    let res = curr.map(c=>c.name.common)
      console.log(res);
   }
 
