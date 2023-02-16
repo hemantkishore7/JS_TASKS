@@ -1,0 +1,116 @@
+.empty{
+    width: 100%;
+    height: 100%;
+    margin: 150px;
+}
+html,body{
+    padding: 0;
+    margin: 0;
+    
+}
+.container{
+    width: 100%;
+    height: 500px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+.right{
+    width: 70%;
+    height: 400px;
+    background-color: cornsilk;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.left{
+    width:30%
+ 
+}
+.pro-photo{
+    width: 70%;
+    height: 200px;
+    background-color: lightgrey;
+    margin: 40px    ;
+
+    
+}
+form{
+    display: flex;
+    
+    justify-content: center;
+    width: 60%;
+    height: 400px;
+    background-color: cornsilk;
+    margin: 0 100px 0px 100px;
+    
+}
+
+.name{
+    width: 90%;
+    height: 20px;
+   /* margin: 70px 5px 5px 450px; */
+  
+   margin: 30px 0 5px 15px;
+   padding: 10px;
+   display: flex;
+   justify-content: center;
+}
+.email{
+    width: 90%;
+    height: 20px;
+   /* margin: 70px 0 5px 15px; */
+  
+   margin: 5px 0 5px 15px;
+   padding: 10px;
+   display: flex;
+   justify-content: center;
+}
+.phn-number{
+    width: 90%;
+    height: 20px;
+   /* margin: 70px 5px 5px 450px; */
+  
+   margin: 5px 0 5px 15px;
+   padding: 10px;
+   display: flex;
+   justify-content: center;
+}
+.seat{
+    width: 90%;
+    height: 20px;
+   /* margin: 70px 5px 5px 450px; */
+  
+   margin: 5px 0 5px 15px;
+   padding: 10px;
+   display: flex;
+   justify-content: center;
+    
+}
+.attendee{
+    width: 90%;
+    height: 20px;
+   /* margin: 70px 5px 5px 450px; */
+  
+   margin: 5px 0 5px 15px;
+   padding: 10px;
+   display: flex;
+   justify-content: center;
+   
+}
+input{
+     margin: 0 0 0 15px;
+     justify-content: right;
+    }
+label{
+   color: brown;
+   font-style: italic;
+   display: flex;
+   justify-content: right;
+}
+h{
+    margin: 30px 0 0 0;
+}
+.button{
+    margin:30px 0 0 0;
+}
