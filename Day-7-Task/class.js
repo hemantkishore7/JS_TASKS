@@ -12,8 +12,10 @@ class RestCountries {
   getCountries(arrCountry = []) {
     console.log("#Asian Region Country:");
     let res = arrCountry.filter(country => country.region == 'Asia'   );
-   
-    console.log(res);
+    let ans = res.map((country)=>{
+      return country.name
+    })
+    console.log(ans)
   }
 
   getPopulation(arrCountry = []) {
@@ -64,9 +66,10 @@ request.onload = () => {
   let setDetail = new RestCountries(arrCountry.countries, arrCountry.population, arrCountry.currencies)
   setDetail.getCountries(arrCountry);
   setDetail.getPopulation(arrCountry);
-  setDetail.getCurrency(arrCountry);
+ 
   //console.log(arrCountry)
   setDetail.getNameCapitalFlag(arrCountry);
   setDetail.getTotalPopulation(arrCountry);
+  setDetail.getCurrency(arrCountry);
 }
 
