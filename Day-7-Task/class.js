@@ -13,15 +13,18 @@ class RestCountries {
     console.log("#Asian Region Country:");
     let res = arrCountry.filter(country => country.region == 'Asia'   );
     let ans = res.map((country)=>{
-      return country.name
+      return country.name.common
     })
     console.log(ans)
   }
 
   getPopulation(arrCountry = []) {
     console.log("#Population less than 2 lakhs:");
-    this.population = arrCountry.filter(pop => pop.population < 200000);
-    console.log(this.population);
+    let population = arrCountry.filter(pop => pop.population < 200000);
+    let res = population.map((country)=>{
+      return country.name.common
+    })
+    console.log(res);
   }
 
   getCurrency(arrCountry = []) {
@@ -36,7 +39,7 @@ class RestCountries {
   getNameCapitalFlag(arrCountry = []) {
     console.log("# Name   Capital    Flag");
     arrCountry.forEach((ele) => {
-      console.log(ele.name+ " "+ ele.capital+ " " + ele.flag);
+      console.log(ele.name.common+ " "+ ele.capital+ " " + ele.flag);
     });
 
   }
