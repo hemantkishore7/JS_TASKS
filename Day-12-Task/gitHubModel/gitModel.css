@@ -8,7 +8,15 @@ html,
         height: 50px;
         background-color: black;
         display: flex;
-        justify-content: center;  
+        margin: 0 auto; 
+      }
+      .image{
+        margin: 10px 0 0 10px;
+        /* color: black; */
+        border-radius: 50%;
+      }
+      .head {
+        margin: 0 auto;
       }
       .content-container {
         box-sizing: border-box;
