@@ -1,10 +1,10 @@
-var optdiv = document.createElement('div');
+let optdiv = document.createElement('div');
 optdiv.setAttribute('class', 'tableData')
 
 
-var cur_page = 0;
-var records_per_page = 10;
-var max_pages = Math.ceil(100 / records_per_page);
+let cur_page = 0;
+let records_per_page = 10;
+let max_pages = Math.ceil(100 / records_per_page);
 
 function prev_Page() {
     if (cur_page > 1) {
@@ -22,8 +22,8 @@ function changePage(num) {
     if (num < 1) num = 1;
     if (num > max_pages) num = max_pages;
 
-    var startPoint = (num - 1) * max_pages;
-    var endPoint = (num) * max_pages;
+    let startPoint = (num - 1) * max_pages;
+    let endPoint = (num) * max_pages;
 
     cur_page = num;
     CreateDataTable(startPoint, endPoint);
@@ -44,30 +44,30 @@ function changePage(num) {
 
 function CreateDataTable(start, end) {
     optdiv.innerHTML = " ";
-    var request = new XMLHttpRequest();
-    var url = "https://raw.githubusercontent.com/Rajavasanthan/jsondata/master/pagenation.json";
+    let request = new XMLHttpRequest();
+    let url = "https://raw.githubusercontent.com/Rajavasanthan/jsondata/master/pagenation.json";
 
     request.open('GET', url, true);
     request.send();
 
     request.onload = function() {
-        var data = JSON.parse(this.response);
+        let data = JSON.parse(this.response);
 
-        var table = document.createElement('table');
+        let table = document.createElement('table');
         table.setAttribute('class', 'dataTable');
         table.id = "DataTable";
 
-        var thead = document.createElement('thead');
-        var tbody = document.createElement('tbody');
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
 
-        var tr1 = document.createElement('tr');
-        var th1 = document.createElement('th');
+        let tr1 = document.createElement('tr');
+        let th1 = document.createElement('th');
         th1.innerHTML = "Id";
 
-        var th2 = document.createElement('th');
+        let th2 = document.createElement('th');
         th2.innerHTML = "Name";
 
-        var th3 = document.createElement('th');
+        let th3 = document.createElement('th');
         th3.innerHTML = "E-Mail";
 
         optdiv.append(table);
@@ -96,29 +96,29 @@ function CreateDataTable(start, end) {
 
 }
 
-//------------------pagination
 
-var d = document.createElement('div');
+
+let d = document.createElement('div');
 d.setAttribute('class', 'anchorlist');
 
-var prev = document.createElement('a');
+let prev = document.createElement('a');
 prev.href = `javascript:prev_Page()`;
 prev.id = "prev";
 prev.innerHTML = "&laquo;";
 
-var next = document.createElement('a');
+let next = document.createElement('a');
 next.href = `javascript:next_Page()`;
 next.id = "next";
 next.innerHTML = "&raquo;";
 
-var arr = createAnchorList();
+let arr = createAnchorList();
 
 
 function createAnchorList() {
-    var ar = [];
+    let ar = [];
     for (let i = 1; i <= 10; i++) {
 
-        var a = document.createElement('a');
+        let a = document.createElement('a');
         a.href = `javascript:changePage(${i})`;
         a.innerHTML = i;
         if (i === 1) {
@@ -129,7 +129,7 @@ function createAnchorList() {
     return ar;
 }
 
-var heading = document.createElement('div');
+let heading = document.createElement('div');
 heading.innerHTML = "PAGINATION"
 heading.setAttribute('class', 'heading');
 
