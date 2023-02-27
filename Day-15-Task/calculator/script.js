@@ -1,15 +1,15 @@
-var div1 = create("div", "container-fluid mt-5 ml-5 p-5");
+let div1 = create("div", "container-fluid mt-5 ml-5 p-5");
 
 let bg = document.querySelector("body");
 
 
-var divarr = createElements(
+let divarr = createElements(
   "div",
   "offset-md-2 offset-sm-1 row text-md-center text-sm-left h4 mb-0",
   6
 );
 
-var input = create("input", "col-8 border-3 border-light text-right mt-5 mb-1");
+let input = create("input", "col-8 border-3 border-light text-right mt-5 mb-1");
 input.setAttribute("type", "text");
 input.disabled = true;
 input.setAttribute(
@@ -18,7 +18,7 @@ input.setAttribute(
 );
 input.id = "display";
 
-var btnnumbers = createElements(
+let btnnumbers = createElements(
   "button",
   "btn-fluid btn-medium text-md-center text-sm-left text-xs-left p-md-3 p-sm-4 p-xs-4 col-2",
   10
@@ -34,16 +34,16 @@ btnnumbers[7].setAttribute("onclick", `appendNumber(7)`);
 btnnumbers[8].setAttribute("onclick", `appendNumber(8)`);
 btnnumbers[9].setAttribute("onclick", `appendNumber(9)`);
 
-var add = createButton("+", "+", `appendNumber('+')`);
-var sub = createButton("-", "-", `appendNumber('-')`);
-var mul = createButton("x", "X", `appendNumber('*')`);
-var division = createButton("&#247;", "/", `appendNumber('/')`);
-var square = createButton("x<sup>2</sup>", "square", "power2()");
-var equals = createButton("=", "=", "equate()");
-var root = createButton("&radic;", "root", "sqrRoot()");
-var dot = createButton(".", ".", `appendNumber('.')`);
-var clear = createButton("c", "c", "clearScreen()");
-var cube = createButton("x<sup>3</sup>", "cube", "power3()");
+const add = createButton("+", "+", `appendNumber('+')`);
+const sub = createButton("-", "-", `appendNumber('-')`);
+const mul = createButton("x", "X", `appendNumber('*')`);
+const division = createButton("&#247;", "/", `appendNumber('/')`);
+const square = createButton("x<sup>2</sup>", "square", "power2()");
+const equals = createButton("=", "=", "equate()");
+const root = createButton("&radic;", "root", "sqrRoot()");
+const dot = createButton(".", ".", `appendNumber('.')`);
+const clear = createButton("c", "c", "clearScreen()");
+const cube = createButton("x<sup>3</sup>", "cube", "power3()");
 
 document.body.append(div1);
 div1.append(divarr[0], divarr[1], divarr[2], divarr[3], divarr[4], divarr[5]);
