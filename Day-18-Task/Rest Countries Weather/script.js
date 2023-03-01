@@ -41,7 +41,7 @@ async function getWeather(countryName) {
           console.log(dataWeather);
 
        dataWeather.then(function (data) {
-          alert(`the ${countryName} temperature is : ${data.main.temp}`);
+          alert(`The ${countryName} Temperature is : ${data.main.temp}`);
     });
   } catch (err) {
     console.log(err);
