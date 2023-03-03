@@ -1,6 +1,16 @@
 const container = document.createElement("div");
 container.className = "container";
+
+const heading = document.createElement("h1");
+heading.setAttribute("id", "title");
+heading.setAttribute("class", "text-center");
+heading.innerText = "Rest Countries Weather Reports!";
+
+const row = document.createElement("div");
+row.setAttribute("class", "row");
+
 document.body.append(container);
+container.append(heading, row);
 
 async function getCountries() {
   try {
@@ -8,22 +18,94 @@ async function getCountries() {
     let countryData = await restCountries.json();
     console.log(countryData);
 
-    countryData.forEach((country) => {
-      const card = document.createElement("div");
-      card.className = "card"
-      card.className = "mt-5"
-      card.style = "width: 18rem; text-align: center; border:1px solid gray;";
+    countryData.forEach((country, index) => {
+      const col = document.createElement("div");
+      col.classList.add(
+        "column",
+        "col-sm-6",
+        "col-md-4",
+        "col-lg-4",
+        "col-xl-4",
+        "text-center",
+        "mt-4"
+      );
 
-      card.innerHTML = `<h5 class="card-head">${country.name.common}</h5>
-                  <img src="${country.flags.png}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                  <h6 class="card-title">Capital:  ${country.capital}</h6>
-                  <h6 class="card-title">Region:  ${country.region}</h6>
-                  <h6 class="card-title">Country Code:  ${country.borders}</h6>
-                  <button onclick="getWeather('${country.name.common}')" class="btn btn-warning ">Click for Weather</button>
-                  </div>
-  `;
-      container.appendChild(card);
+      const cardHeader = document.createElement("div");
+      cardHeader.classList.add("card-header");
+      cardHeader.innerText = country.name.common;
+
+      const card = document.createElement("div");
+      card.classList.add("card", "h-100");
+
+      
+
+      //card.style = "width: 19rem; text-align: center; border:2px solid gray;";
+
+      const cardImg = document.createElement("img");
+      cardImg.src = country.flags.png;
+      cardImg.classList.add("card-img-top", "mb-2");
+
+      const cardbody = document.createElement("div");
+      cardbody.classList.add("card-body");
+
+      const cardText = document.createElement("div");
+      cardText.classList.add("card-Text");
+
+      cardText.innerText =
+        "Capital : " +
+        country.capital +
+        "\n" +
+        "Region : " +
+        country.region +
+        "\n" +
+        "Country Code : " +
+        country.borders;
+
+      // const capitalH1 =document.createElement('h1')
+      // capitalH1.innerText = 'Capital: '+ country.capital;
+      // //cardText.innerText.includes('Capital'+ country.capital)
+      // capitalH1.setAttribute('class','card-text')
+
+      // const regionH1 = document.createElement('h1')
+      // regionH1.innerText ='Region: '+ country.region;
+      // regionH1.setAttribute('class','card-text')
+
+      // const countryCode = document.createElement('h1')
+      // countryCode.innerText ='Country Code: '+   country.borders;
+      // countryCode.setAttribute('class','card-text')
+
+      const climate = document.createElement("div");
+      climate.setAttribute("class", "card-text text-center mt-2");
+
+      const button = document.createElement("button");
+      button.innerText = "Click for Weather";
+      button.setAttribute("class", "btn btn-primary");
+      //button.id = 'btn-' + index;
+      button.onclick = async function weatherApi() {
+        try {
+          let weatherData = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?lat=${country.latlng[0]}&lon=${country.latlng[1]}&appid=cbaac264b1a3bdf7099d6b56f3d31bd3`
+          );
+
+          let data = await weatherData.json();
+          console.log(data);
+
+          climate.innerHTML =
+            (data.main.temp - 273.15).toFixed(2) +
+            "&#176; C ," +
+            data.weather[0].description;
+        } catch (e) {
+          console.log(e);
+        }
+      };
+
+      col.append(cardHeader, card);
+      card.append(cardImg, cardbody);
+      cardbody.appendChild(cardText);
+      cardText.append(climate, button);
+      //cardText.append(capitalH1,regionH1,countryCode,climate,button)
+
+      row.appendChild(col);
     });
   } catch (err) {
     console.log(err);
@@ -31,19 +113,3 @@ async function getCountries() {
 }
 
 getCountries();
-
-async function getWeather(countryName) {
-  try {
-       let fetchWeather = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${countryName}&appid=cbaac264b1a3bdf7099d6b56f3d31bd3`
-    );
-       let dataWeather = fetchWeather.json();
-          console.log(dataWeather);
-
-       dataWeather.then(function (data) {
-          alert(`The ${countryName} Temperature is : ${data.main.temp}`);
-    });
-  } catch (err) {
-    console.log(err);
-  }
-}
