@@ -44,11 +44,7 @@ async function getCharacters(){
 
   const tvShow = document.createElement('p');
   tvShow.classList.add('bold','font-weight-bold')
-  if(characters.tvShow){
-    tvShow.innerText = 'Tv-Show : Undefined' ;
-  }else{
-    tvShow.innerText = 'Tv-Show : ' + [...characters.tvShows]
-  }
+  tvShow.innerText = 'Tv-Show : ' + characters.tvShows || 'Undefined';
 
   cardContainer.append(image,cardText)
   cardText.append(name,tvShow)
