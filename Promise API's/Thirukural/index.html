@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://play-lh.googleusercontent.com/jzsVuUNU27AvOOBYTV2Rpr34HwgPPnJYOJlw596aG3oqu-kbw2pplb3Pdfqs_pqb3Q"
+      sizes="16x16 24x24 32x32 48x48"
+    />
+    <title>திருக்குறள்</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="fab" id="fab" onclick="fetchKural()"></div>
+      <div class="banner">
+        <img
+          src="https://i0.wp.com/www.vinavu.com/wp-content/uploads/2019/08/Thirukural-Thiruvalluvar-slider.jpg?fit=1024%2C576&ssl=1&w=640"
+        />
+        <!-- <header class="heading">திருக்குறள்</header> -->
+      </div>
+      <div class="content-area">
+        <div class="header">
+          <h1 class="sub-head" id="sub-head"></h1>
+        </div>
+        <p class="kural-num" id="kural-num"></p>
+
+        <div class="kural">
+          <p class="line1" id="line1"></p>
+          <p class="line2" id="line2"></p>
+          <p class="author">-திருக்குறள்</p>
+        </div>
+
+        <div class="defination">
+            <h6 id="vilakam">விளக்கம்</h6>
+          <p class="expl" id="expl"></p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
