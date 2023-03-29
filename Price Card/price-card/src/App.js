@@ -1,10 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [count, setCount] = useState(0);
+  const counter = document.getElementById('counter-value')
+
+  function handleChange(type) {
+    if (type === "decrement" && count >= 1) setCount = (count - 1);
+    else if (type === "increment") setCount = (count + 1);
+    changeUI(count)
+  }
+  
+  function changeUI(value = 0){
+    counter.innerText = value
+  }
+
+
   return (
     <div className="App">
-      <section class="pricing py-5">
+      {/* { <section class="pricing py-5">
   <div class="container">
     <div class="row">
    
@@ -85,7 +100,24 @@ function App() {
       </div>
     </div>
   </div>
-</section>
+</section> 
+} */}
+
+      <div className="container">
+        <button
+          className="counter-button"
+          onClick={() => handleChange("decrement")}
+        >
+          -{" "}
+        </button>
+        <p id="counter-value" className="text">{(count)}</p>
+        <button
+          className="counter-button"
+          onClick={() => handleChange("increment")}
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 }
