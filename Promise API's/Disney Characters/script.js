@@ -1,4 +1,4 @@
-const url = "https://api.disneyapi.dev/characters";
+const url = "https://api.disneyapi.dev/character";
 
   const container = document.getElementById('container');
 
